@@ -1,0 +1,79 @@
+replicaCount: 1
+
+image:
+  backend:
+    repository: ghcr.io/jakubzasadni/alertdesk-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  frontend:
+    repository: ghcr.io/jakubzasadni/alertdesk-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  backendPort: 8000
+  frontendPort: 80
+
+ingress:
+  enabled: false
+  className: nginx
+  host: alertdesk.example.com
+  tls: false
+  tlsSecretName: ""
+
+config:
+  alertmanagerUrl: "http://alertmanager:9093"
+  syncIntervalSeconds: 30
+  accessTokenExpireMinutes: 480
+  sourcePrimaryLabel: "Primary"
+  # Secondary Alertmanager source (optional)
+  secondaryAlertmanagerUrl: ""
+  secondaryAlertmanagerHost: ""
+  sourceSecondaryLabel: "Secondary"
+  # Keycloak SSO (optional)
+  keycloakUrl: ""
+  keycloakRealm: ""
+  keycloakClientId: "alertdesk"
+  # CalDAV on-call calendar (optional)
+  caldavUrl: ""
+  caldavUsername: ""
+  caldavCalendarUrl: ""
+
+secret:
+  # Secret key for JWT signing — change this!
+  secretKey: "change-me-in-production-32-chars!!"
+  # CalDAV password / app token
+  caldavPassword: ""
+
+postgresql:
+  enabled: true
+  auth:
+    username: alertdesk
+    password: alertdesk
+    database: alertdesk
+  primary:
+    persistence:
+      enabled: true
+      size: 2Gi
+
+externalDatabase:
+  # Used when postgresql.enabled=false
+  url: ""
+
+resources:
+  backend:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      memory: 256Mi
+  frontend:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      memory: 128Mi

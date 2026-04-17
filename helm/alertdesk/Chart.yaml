@@ -1,0 +1,17 @@
+apiVersion: v2
+name: alertdesk
+description: Alertmanager UI with acknowledgements, comments and on-call calendar
+type: application
+version: 0.1.0
+appVersion: "latest"
+keywords:
+  - alertmanager
+  - prometheus
+  - monitoring
+  - alerting
+home: https://github.com/jakubzasadni/alertdesk
+sources:
+  - https://github.com/jakubzasadni/alertdesk
+maintainers:
+  - name: jakubzasadni
+    url: https://github.com/jakubzasadni

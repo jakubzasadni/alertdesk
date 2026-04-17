@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "alertdesk.fullname" . }}
+  labels: {{- include "alertdesk.labels" . | nindent 4 }}
+data:
+  ALERTMANAGER_URL: {{ .Values.config.alertmanagerUrl | quote }}
+  SYNC_INTERVAL_SECONDS: {{ .Values.config.syncIntervalSeconds | quote }}
+  ACCESS_TOKEN_EXPIRE_MINUTES: {{ .Values.config.accessTokenExpireMinutes | quote }}
+  SOURCE_PRIMARY_LABEL: {{ .Values.config.sourcePrimaryLabel | quote }}
+  SOURCE_SECONDARY_LABEL: {{ .Values.config.sourceSecondaryLabel | quote }}
+  SECONDARY_ALERTMANAGER_URL: {{ .Values.config.secondaryAlertmanagerUrl | quote }}
+  SECONDARY_ALERTMANAGER_HOST: {{ .Values.config.secondaryAlertmanagerHost | quote }}
+  KEYCLOAK_URL: {{ .Values.config.keycloakUrl | quote }}
+  KEYCLOAK_REALM: {{ .Values.config.keycloakRealm | quote }}
+  KEYCLOAK_CLIENT_ID: {{ .Values.config.keycloakClientId | quote }}
+  CALDAV_URL: {{ .Values.config.caldavUrl | quote }}
+  CALDAV_USERNAME: {{ .Values.config.caldavUsername | quote }}
+  CALDAV_CALENDAR_URL: {{ .Values.config.caldavCalendarUrl | quote }}
