@@ -11,7 +11,11 @@ A lightweight Alertmanager UI with acknowledgements, threaded comments, and on-c
 
 ## Screenshots
 
+<div align="center">
+
 ![Alerts table](docs/screenshots/alerts.png)
+
+</div>
 
 ![Login page](docs/screenshots/login.png)
 
