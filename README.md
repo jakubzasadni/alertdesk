@@ -11,8 +11,9 @@ A lightweight Alertmanager UI with acknowledgements, threaded comments, and on-c
 
 ## Screenshots
 
-<!-- Add screenshots here -->
-> Screenshots coming soon. Run `docker compose up` and open `http://localhost:3000` to try it out.
+![Alerts table](docs/screenshots/alerts.png)
+
+![Login page](docs/screenshots/login.png)
 
 ---
 
