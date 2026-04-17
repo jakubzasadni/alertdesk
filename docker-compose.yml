@@ -21,6 +21,8 @@ services:
       ALERTMANAGER_URL: http://host.docker.internal:9093
       SECRET_KEY: dev-secret-key-change-me-in-prod-32c
       SYNC_INTERVAL_SECONDS: "30"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       - postgres
 

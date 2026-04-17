@@ -113,6 +113,7 @@ CALDAV_PASSWORD=my-app-token
 ```bash
 helm repo add alertdesk https://jakubzasadni.github.io/alertdesk
 helm repo update
+helm search repo alertdesk
 
 helm install alertdesk alertdesk/alertdesk \
   --namespace alertdesk --create-namespace \
