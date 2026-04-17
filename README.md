@@ -59,7 +59,7 @@ git clone https://github.com/jakubzasadni/alertdesk
 cd alertdesk
 
 # Edit ALERTMANAGER_URL in docker-compose.yml to point at your Alertmanager
-docker compose up -d
+docker compose up --build -d
 
 # Open http://localhost:3000
 # Default credentials: admin / admin  ← change immediately
